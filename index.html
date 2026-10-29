@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سنتر فيوتشر التعليمي - Future Academy</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-sub: #64748b;
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #0d9488;
+            --accent: #9333ea;
+            --admin-color: #ea580c;
+            --shadow-3d: 0 8px 0 0;
+            --shadow-3d-active: 0 2px 0 0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            transition: all 0.2s ease;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
+            background-size: 20px 20px;
+            color: var(--text-main);
+            min-height: 100vh;
+            padding-bottom: 50px;
+        }
+
+        /* Overlay Auth Screen */
+        .auth-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(8px);
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .auth-card {
+            background: white;
+            width: 100%;
+            max-width: 420px;
+            border-radius: 28px;
+            padding: 35px 25px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            border: 3px solid #e2e8f0;
+        }
+
+        .social-btn {
+            width: 100%;
+            padding: 14px;
+            border-radius: 14px;
+            border: 2px solid #cbd5e1;
+            background: white;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 12px;
+            box-shadow: 0 4px 0 #cbd5e1;
+        }
+
+        .social-btn:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px 0 #cbd5e1;
+        }
+
+        .btn-google { color: #ea4335; border-color: #fca5a5; box-shadow: 0 4px 0 #fca5a5; }
+        .btn-facebook { color: #1877f2; border-color: #93c5fd; box-shadow: 0 4px 0 #93c5fd; }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 3px solid #e2e8f0;
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-area { display: flex; align-items: center; gap: 15px; }
+
+        .logo-3d-hd {
+            width: 55px; height: 55px;
+            background: linear-gradient(135deg, #1d4ed8, #9333ea);
+            border-radius: 16px;
+            display: flex; align-items: center; justify-content: center;
+            color: #fbbf24; font-size: 26px;
+            box-shadow: 0 6px 0 #1e3a8a, 0 10px 15px rgba(37, 99, 235, 0.3);
+            position: relative;
+        }
+
+        .user-profile-badge {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: #f1f5f9;
+            padding: 6px 14px;
+            border-radius: 30px;
+            border: 2px solid #cbd5e1;
+        }
+
+        .role-tag {
+            font-size: 0.75rem;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-weight: 800;
+            color: white;
+        }
+        .role-student { background: #0d9488; }
+        .role-admin { background: #ea580c; }
+
+        /* Navigation Tabs */
+        .container { max-width: 1200px; margin: 30px auto; padding: 0 20px; }
+
+        .tabs-nav {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .tab-btn {
+            border: none; padding: 16px; border-radius: 16px;
+            font-size: 1rem; font-weight: 800; color: white;
+            cursor: pointer; display: flex; align-items: center; justify-content: center;
+            gap: 10px; position: relative; top: 0; outline: none;
+        }
